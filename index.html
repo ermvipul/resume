@@ -423,6 +423,39 @@
             color: var(--muted)
         }
 
+        
+        #feedback-form {
+            display: grid;
+            gap: 10px;
+        }
+
+        #feedback-form label {
+            font-weight: 650;
+            font-size: .9rem;
+        }
+
+        #feedback-form input,
+        #feedback-form select,
+        #feedback-form textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--bg);
+            color: var(--text);
+            font: inherit;
+            margin-bottom: 8px;
+        }
+
+        #feedback-form textarea {
+            resize: vertical;
+        }
+
+        #feedback-form button {
+            justify-self: start;
+        }
+
+
         footer {
             border-top: 1px solid var(--line);
             padding: 25px 0;
@@ -755,6 +788,41 @@
                 </div>
             </div>
         </section>
+        
+<section id="feedback">
+    <div class="wrap">
+        <div class="kicker">Feedback</div>
+        <h2>Help me improve.</h2>
+        <p class="intro">
+            Have suggestions about my portfolio or projects?
+            I'd love to hear your feedback.
+        </p>
+
+        <div class="panel">
+            <form id="feedback-form">
+                <label for="feedback-name">Name (optional)</label>
+                <input id="feedback-name" name="name" type="text" placeholder="Your name">
+        
+                <label for="feedback-type">Feedback category</label>
+                <select id="feedback-type" name="category">
+                    <option>Portfolio feedback</option>
+                    <option>Technical projects</option>
+                    <option>Career opportunity</option>
+                    <option>Other</option>
+                </select>
+        
+                <label for="feedback-message">Your feedback</label>
+                <textarea id="feedback-message" name="message" rows="5" required
+                    placeholder="Share your suggestions..."></textarea>
+        
+                <button class="btn primary" type="submit">
+                    Send feedback ↗
+                </button>
+            </form>
+        </div>
+        </div>
+        </section>
+
         <section id="contact">
             <div class="wrap">
                 <div class="contact">
@@ -782,6 +850,24 @@
         theme.addEventListener('click', () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('vipul-theme', root.dataset.theme) } catch (e) { } paint() });
         menu.addEventListener('click', () => links.classList.toggle('open')); links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        
+        document.getElementById('feedback-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('feedback-name').value.trim() || 'Anonymous';
+            const category = document.getElementById('feedback-type').value;
+            const message = document.getElementById('feedback-message').value.trim();
+
+            const subject = encodeURIComponent(`Portfolio Feedback: ${category}`);
+            const body = encodeURIComponent(
+                `Name: ${name}\nCategory: ${category}\n\nFeedback:\n${message}`
+            );
+
+            window.location.href =
+                `mailto:vipul81kumar@gmail.com?subject=${subject}&body=${body}`;
+        });
+
     </script>
 </body>
 
