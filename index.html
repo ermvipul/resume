@@ -323,6 +323,31 @@
             font-size: 1.1rem
         }
 
+        .company-name {
+            margin-top: 3px !important;
+        }
+
+        .company-name a {
+            color: var(--accent);
+            text-decoration: none;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s ease, opacity .2s ease;
+        }
+
+        .company-name a:hover,
+        .company-name a:focus-visible {
+            border-bottom-color: currentColor;
+            text-decoration: none;
+        }
+
+        .company-name a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
         .job ul {
             padding-left: 19px;
             color: var(--muted);
@@ -500,7 +525,7 @@
                         <p class="lead">I'm Vipul Singh, an SRE and DevOps engineer focused on cloud infrastructure,
                             Kubernetes, observability, automation, and production reliability.</p>
                         <div class="actions"><a class="btn primary" href="#experience">Explore experience ↘</a><a
-                                class="btn" href="mailto:vipul81kumar@gmail.com">Contact me ↗</a><a class="btn"
+                                class="btn" href="mailto:vipul81kumar@gmail.com">Contact me ↗</a><a class="btn" href="tel:+919023853059">📞 Call me</a><a class="btn"
                                 href="https://www.linkedin.com/in/vipul2052/" target="_blank" rel="noopener">LinkedIn
                                 ↗</a></div>
                     </div>
@@ -592,22 +617,22 @@
                             <div class="place">Noida, India</div>
                         </div>
                         <div>
+                            <h3>Site Reliability Engineer (SRE II)</h3>
                             <h3 class="company-name">
                                 <a href="https://personifyhealth.com/" target="_blank"
                                 rel="noopener noreferrer">Personify Health</a>
                             </h3>
                             <ul>
                                 <li>Manage AWS infrastructure and improve production reliability.</li>
+                                <li>Managed on-call operations, incident response, production troubleshooting, and root cause analysis (RCA).</li>
                                 <li>Optimize cloud costs through resource tagging and rightsizing.</li>
                                 <li>Implement KEDA-based autoscaling for Kafka workloads on Kubernetes.</li>
                                 <li>Contribute to Istio Ambient Mode implementation; improve observability using Istio
                                     metrics, New Relic, and OpenSearch.</li>
-                                <li>Reduce log ingestion and storage costs through application logging optimization.
-                                </li>
                                 <li>Manage infrastructure using OpenTofu and support Keycloak, Backstage, and AKHQ.</li>
                             </ul>
                             <div class="tech"><b>Tech:</b> AWS, Kubernetes, OpenTofu, GitLab, KEDA, Kafka, Istio, New
-                                Relic, OpenSearch</div>
+                                Relic, OpenSearch, PagerDuty, AKHQ</div>
                         </div>
                     </article>
                     <article class="job">
@@ -616,19 +641,23 @@
                             <div class="place">Bengaluru, India</div>
                         </div>
                         <div>
-                            <h3>Site Reliability Engineer</h3>
-                            <div class="place">ViewSonic India</div>
+                            <h3>Site Reliability Engineer (SRE I)</h3>
+                            <h3 class="company-name">
+                                <a href="https://www.viewsonic.com/in/" target="_blank"
+                                rel="noopener noreferrer">ViewSonic India</a>
+                            </h3>
                             <ul>
                                 <li>Centralized monitoring and logging for 100+ services using Grafana, Prometheus, and
                                     ELK, reducing incident response time by 40%.</li>
                                 <li>Defined SLIs, SLOs, and SLAs; managed on-call operations, incident response,
                                     troubleshooting, and RCA.</li>
+                                <li>Managed on-call operations, incident response, and root cause analysis..</li>
                                 <li>Automated deployments using Azure DevOps, GitHub Actions, and ArgoCD; managed
                                     Kubernetes deployments with Helm.</li>
                                 <li>Supported monitoring and disaster recovery strategies for AI-powered products.</li>
                             </ul>
                             <div class="tech"><b>Tech:</b> AWS, Kubernetes, Helm, Terraform, ArgoCD, Azure DevOps,
-                                GitHub Actions, Grafana, Prometheus, ELK</div>
+                                GitHub Actions, Grafana, Prometheus, ELK, Opsgenie</div>
                         </div>
                     </article>
                     <article class="job">
@@ -638,7 +667,10 @@
                         </div>
                         <div>
                             <h3>DevOps Engineer</h3>
-                            <div class="place">Abacus Consultancy Pvt. Ltd.</div>
+                            <h3 class="company-name">
+                                <a href="https://www.itsabacus.com/" target="_blank"
+                                rel="noopener noreferrer">Abacus Consultancy Pvt. Ltd</a>
+                            </h3>
                             <ul>
                                 <li>Managed AWS infrastructure across Lambda, ECS, ECR, RDS, S3, Glue, and Athena.</li>
                                 <li>Reduced cloud costs by 15% through infrastructure optimization and resource
@@ -658,14 +690,17 @@
                         </div>
                         <div>
                             <h3>Associate Software Engineer (Backend)</h3>
-                            <div class="place">CrossML Pvt. Ltd.</div>
+                            <h3 class="company-name">
+                                <a href="https://www.crossml.com/" target="_blank"
+                                rel="noopener noreferrer">CrossML Pvt. Ltd.</a>
+                            </h3>
                             <ul>
                                 <li>Designed and maintained 10+ AWS Glue ETL pipelines, reducing manual processing by
                                     30%.</li>
                                 <li>Containerized applications with Docker and developed cloud solutions using Lambda,
                                     S3, and CloudFormation.</li>
                             </ul>
-                            <div class="tech"><b>Tech:</b> Python, Docker, AWS Glue, Lambda, S3, CloudFormation</div>
+                            <div class="tech"><b>Tech:</b> Python, Docker, AWS Glue, Lambda, S3, CloudFormation, CodeCommit, CodeBuild</div>
                         </div>
                     </article>
                 </div>
