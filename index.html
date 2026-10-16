@@ -1,48 +1,751 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Vipul Singh — Site Reliability Engineer focused on AWS, Kubernetes, observability and automation.">
-<title>Vipul Singh | SRE & DevOps</title>
-<style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#172235;--muted:#5c6a7d;--line:#dce4ee;--accent:#087f8c;--soft:#eaf5f6}
-[data-theme=dark]{--bg:#0b1220;--card:#111c2e;--text:#edf4ff;--muted:#a8b6ca;--line:#28384f;--accent:#53d3d0;--soft:#16313b}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1080px,calc(100% - 36px));margin:auto}
-header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;font-size:1.15rem;color:var(--text)}.brand span{color:var(--accent)}.links{display:flex;gap:20px}.links a{font-size:.9rem;font-weight:650;color:var(--muted)}button,.btn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 13px;border-radius:12px;font:inherit;cursor:pointer}.menu{display:none}
-.hero{padding:78px 0 54px}.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:40px;align-items:center}.eyebrow{display:inline-block;border:1px solid var(--line);border-radius:30px;background:var(--card);padding:5px 12px;color:var(--muted);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.7rem,6vw,4.7rem);line-height:1.04;letter-spacing:-.06em;margin:20px 0 15px}.gradient{background:linear-gradient(100deg,var(--accent),#3978df);color:transparent;background-clip:text}.lead{font-size:1.1rem;color:var(--muted);max-width:670px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;font-weight:750}.primary{background:var(--accent);border-color:var(--accent);color:white}.terminal,.panel,.stat,.skill,.job,.project,.edu,.contact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}.terminal{box-shadow:0 18px 45px #10253a12;font: .87rem/1.9 ui-monospace,monospace;color:var(--muted);overflow-wrap:anywhere}.terminal b{color:var(--accent)}.dots{display:flex;gap:6px;margin-bottom:15px}.dots i{width:9px;height:9px;border-radius:50%;background:#fb7185}.dots i:nth-child(2){background:#fbbf24}.dots i:nth-child(3){background:#34d399}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:32px}.stat strong{font-size:1.55rem;display:block}.stat span{font-size:.83rem;color:var(--muted)}
-section{padding:48px 0}.kicker{color:var(--accent);font-size:.75rem;letter-spacing:.16em;font-weight:850;text-transform:uppercase}h2{font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-.04em;line-height:1.12;margin:6px 0 22px}.intro,.muted{color:var(--muted)}.about{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.pills{display:flex;flex-wrap:wrap;gap:8px}.pill{padding:6px 10px;border:1px solid var(--line);background:var(--soft);border-radius:9px;font-size:.82rem;font-weight:650}.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill h3{margin:0 0 7px;font-size:1rem}.skill p,.project p{margin:0;color:var(--muted);font-size:.92rem}
-.jobs{display:grid;gap:14px}.job{display:grid;grid-template-columns:175px 1fr;gap:24px}.date{color:var(--accent);font-size:.83rem;font-weight:800}.place{color:var(--muted);font-size:.88rem}.job h3{margin:0;font-size:1.1rem}.job ul{padding-left:19px;color:var(--muted);margin:10px 0}.job li{padding:2px 0}.tech{font-size:.82rem;color:var(--muted)}.tech b{color:var(--text)}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.project h3{margin:12px 0 8px;font-size:1.04rem}.project .pills{margin-top:16px}.project-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--soft);color:var(--accent);font-size:1.25rem}.education{display:grid;grid-template-columns:1fr 1fr;gap:14px}.edu h3{margin:0 0 5px;font-size:1rem}.edu p{margin:0;color:var(--muted);font-size:.9rem}.contact{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:30px}.contact p{max-width:580px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.83rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:800px){.hero-grid,.about{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr 1fr}.job{grid-template-columns:1fr;gap:6px}}
-@media(max-width:600px){.hero{padding-top:48px}.menu{display:block}.links{display:none;position:absolute;top:65px;left:14px;right:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;flex-direction:column;gap:12px}.links.open{display:flex}.stats,.skills,.projects,.education{grid-template-columns:1fr}.contact{align-items:flex-start;flex-direction:column}section{padding:36px 0}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Vipul Singh — Site Reliability Engineer focused on AWS, Kubernetes, observability and automation.">
+    <title>Vipul Singh | SRE & DevOps</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --card: #fff;
+            --text: #172235;
+            --muted: #5c6a7d;
+            --line: #dce4ee;
+            --accent: #087f8c;
+            --soft: #eaf5f6
+        }
+
+        [data-theme=dark] {
+            --bg: #0b1220;
+            --card: #111c2e;
+            --text: #edf4ff;
+            --muted: #a8b6ca;
+            --line: #28384f;
+            --accent: #53d3d0;
+            --soft: #16313b
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 82px
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.65 system-ui, -apple-system, Segoe UI, sans-serif
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 36px));
+            margin: auto
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: color-mix(in srgb, var(--bg) 88%, transparent);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        nav {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand {
+            font-weight: 850;
+            font-size: 1.15rem;
+            color: var(--text)
+        }
+
+        .brand span {
+            color: var(--accent)
+        }
+
+        .links {
+            display: flex;
+            gap: 20px
+        }
+
+        .links a {
+            font-size: .9rem;
+            font-weight: 650;
+            color: var(--muted)
+        }
+
+        button,
+        .btn {
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--text);
+            padding: 9px 13px;
+            border-radius: 12px;
+            font: inherit;
+            cursor: pointer
+        }
+
+        .menu {
+            display: none
+        }
+
+        .hero {
+            padding: 78px 0 54px
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr .8fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .eyebrow {
+            display: inline-block;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            background: var(--card);
+            padding: 5px 12px;
+            color: var(--muted);
+            font-size: .82rem;
+            font-weight: 700
+        }
+
+        h1 {
+            font-size: clamp(2.7rem, 6vw, 4.7rem);
+            line-height: 1.04;
+            letter-spacing: -.06em;
+            margin: 20px 0 15px
+        }
+
+        .gradient {
+            background: linear-gradient(100deg, var(--accent), #3978df);
+            color: transparent;
+            background-clip: text
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 670px
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 25px
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 750
+        }
+
+        .primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white
+        }
+
+        .terminal,
+        .panel,
+        .stat,
+        .skill,
+        .job,
+        .project,
+        .edu,
+        .contact {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 22px
+        }
+
+        .terminal {
+            box-shadow: 0 18px 45px #10253a12;
+            font: .87rem/1.9 ui-monospace, monospace;
+            color: var(--muted);
+            overflow-wrap: anywhere
+        }
+
+        .terminal b {
+            color: var(--accent)
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px
+        }
+
+        .dots i {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #fb7185
+        }
+
+        .dots i:nth-child(2) {
+            background: #fbbf24
+        }
+
+        .dots i:nth-child(3) {
+            background: #34d399
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            margin-top: 32px
+        }
+
+        .stat strong {
+            font-size: 1.55rem;
+            display: block
+        }
+
+        .stat span {
+            font-size: .83rem;
+            color: var(--muted)
+        }
+
+        section {
+            padding: 48px 0
+        }
+
+        .kicker {
+            color: var(--accent);
+            font-size: .75rem;
+            letter-spacing: .16em;
+            font-weight: 850;
+            text-transform: uppercase
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: -.04em;
+            line-height: 1.12;
+            margin: 6px 0 22px
+        }
+
+        .intro,
+        .muted {
+            color: var(--muted)
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 18px
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .pill {
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            background: var(--soft);
+            border-radius: 9px;
+            font-size: .82rem;
+            font-weight: 650
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .skill h3 {
+            margin: 0 0 7px;
+            font-size: 1rem
+        }
+
+        .skill p,
+        .project p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .92rem
+        }
+
+        .jobs {
+            display: grid;
+            gap: 14px
+        }
+
+        .job {
+            display: grid;
+            grid-template-columns: 175px 1fr;
+            gap: 24px
+        }
+
+        .date {
+            color: var(--accent);
+            font-size: .83rem;
+            font-weight: 800
+        }
+
+        .place {
+            color: var(--muted);
+            font-size: .88rem
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 1.1rem
+        }
+
+        .job ul {
+            padding-left: 19px;
+            color: var(--muted);
+            margin: 10px 0
+        }
+
+        .job li {
+            padding: 2px 0
+        }
+
+        .tech {
+            font-size: .82rem;
+            color: var(--muted)
+        }
+
+        .tech b {
+            color: var(--text)
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .project h3 {
+            margin: 12px 0 8px;
+            font-size: 1.04rem
+        }
+
+        .project .pills {
+            margin-top: 16px
+        }
+
+        .project-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--soft);
+            color: var(--accent);
+            font-size: 1.25rem
+        }
+
+        .education {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .edu h3 {
+            margin: 0 0 5px;
+            font-size: 1rem
+        }
+
+        .edu p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 30px
+        }
+
+        .contact p {
+            max-width: 580px;
+            color: var(--muted)
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 25px 0;
+            color: var(--muted);
+            font-size: .83rem
+        }
+
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        @media(max-width:800px) {
+
+            .hero-grid,
+            .about {
+                grid-template-columns: 1fr
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .projects {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .job {
+                grid-template-columns: 1fr;
+                gap: 6px
+            }
+        }
+
+        @media(max-width:600px) {
+            .hero {
+                padding-top: 48px
+            }
+
+            .menu {
+                display: block
+            }
+
+            .links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 14px;
+                right: 14px;
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+                padding: 12px;
+                flex-direction: column;
+                gap: 12px
+            }
+
+            .links.open {
+                display: flex
+            }
+
+            .stats,
+            .skills,
+            .projects,
+            .education {
+                grid-template-columns: 1fr
+            }
+
+            .contact {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            section {
+                padding: 36px 0
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header><div class="wrap"><nav><a class="brand" href="#home">Vipul<span>.</span></a><div class="links" id="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div><div><button id="theme" aria-label="Toggle theme">☾</button> <button class="menu" id="menu" aria-label="Toggle navigation">☰</button></div></nav></div></header>
-<main>
-<section class="hero" id="home"><div class="wrap"><div class="hero-grid"><div><span class="eyebrow">Site Reliability Engineer II</span><h1>Building reliable systems.<br><span class="gradient">Scaling with confidence.</span></h1><p class="lead">I'm Vipul Singh, an SRE and DevOps engineer focused on cloud infrastructure, Kubernetes, observability, automation, and production reliability.</p><div class="actions"><a class="btn primary" href="#experience">Explore experience ↘</a><a class="btn" href="mailto:vipul81kumar@gmail.com">Contact me ↗</a><a class="btn" href="https://www.linkedin.com/in/vipul2052/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><aside class="terminal"><div class="dots"><i></i><i></i><i></i></div><div><b>vipul@platform</b>:~$ whoami</div><div>Site Reliability Engineer</div><div><b>cloud</b>: AWS</div><div><b>orchestration</b>: Kubernetes</div><div><b>automation</b>: Terraform / OpenTofu</div><div><b>observability</b>: Grafana / Prometheus / ELK</div><div><b>mission</b>: reliable platforms_</div></aside></div><div class="stats"><div class="stat"><strong>5+ years</strong><span>Professional experience</span></div><div class="stat"><strong>100+ services</strong><span>Centralized observability</span></div><div class="stat"><strong>40%</strong><span>Faster incident response</span></div></div></div></section>
-<section id="about"><div class="wrap"><div class="kicker">About me</div><h2>Reliability is a practice.</h2><div class="about"><article class="panel"><p class="muted">Site Reliability Engineer with 5+ years of experience across cloud infrastructure, DevOps, backend engineering, and production reliability. My work spans AWS, Kubernetes, CI/CD automation, observability, incident response, and cloud cost optimization.</p><p class="muted">I enjoy improving how systems are deployed, monitored, scaled, and recovered through automation and practical engineering.</p><p class="muted"><b>AI-related work:</b> OCR-based document processing and application-level ML integration. SREbot and LLM/RAG deployment are not presented as hands-on experience.</p></article><article class="panel"><h3>Core focus</h3><div class="pills"><span class="pill">SRE</span><span class="pill">AWS</span><span class="pill">Kubernetes</span><span class="pill">IaC</span><span class="pill">CI/CD</span><span class="pill">Incident Response</span><span class="pill">Observability</span><span class="pill">Cost Optimization</span><span class="pill">Kafka & KEDA</span><span class="pill">Istio</span></div></article></div></div></section>
-<section id="skills"><div class="wrap"><div class="kicker">Technical toolkit</div><h2>Tools I work with.</h2><div class="skills"><article class="skill"><h3>☁️ Cloud & IaC</h3><p>AWS, DigitalOcean, Terraform, OpenTofu, CloudFormation</p></article><article class="skill"><h3>⎈ Containers & Platform</h3><p>Docker, Kubernetes, Helm, Kustomize, Backstage</p></article><article class="skill"><h3>📈 Observability</h3><p>Prometheus, Grafana, New Relic, ELK, OpenSearch, Loki, Istio metrics</p></article><article class="skill"><h3>🚀 CI/CD & Automation</h3><p>GitLab CI/CD, GitHub Actions, Jenkins, Azure DevOps, ArgoCD, Ansible, Python</p></article><article class="skill"><h3>📨 Messaging & Identity</h3><p>Kafka, KEDA, Redis, RabbitMQ, AKHQ, Keycloak</p></article><article class="skill"><h3>🧰 Development & Data</h3><p>Python, Django, FastAPI, PostgreSQL, MySQL, MongoDB, AWS Glue</p></article></div></div></section>
-<section id="experience"><div class="wrap"><div class="kicker">Career journey</div><h2>Experience that ships.</h2><p class="intro">Cloud operations, automation, and reliability engineering.</p><div class="jobs">
-<article class="job"><div><div class="date">Sep 2025 — Present</div><div class="place">Noida, India</div></div><div><h3>Site Reliability Engineer II</h3><div class="place">Personify Health · CloudAngles Pvt. Ltd.</div><ul><li>Manage AWS infrastructure and improve production reliability.</li><li>Optimize cloud costs through resource tagging and rightsizing.</li><li>Implement KEDA-based autoscaling for Kafka workloads on Kubernetes.</li><li>Contribute to Istio Ambient Mode implementation; improve observability using Istio metrics, New Relic, and OpenSearch.</li><li>Reduce log ingestion and storage costs through application logging optimization.</li><li>Manage infrastructure using OpenTofu and support Keycloak, Backstage, and AKHQ.</li></ul><div class="tech"><b>Tech:</b> AWS, Kubernetes, OpenTofu, GitLab, KEDA, Kafka, Istio, New Relic, OpenSearch</div></div></article>
-<article class="job"><div><div class="date">Jul 2024 — Sep 2025</div><div class="place">Bengaluru, India</div></div><div><h3>Site Reliability Engineer</h3><div class="place">ViewSonic India</div><ul><li>Centralized monitoring and logging for 100+ services using Grafana, Prometheus, and ELK, reducing incident response time by 40%.</li><li>Defined SLIs, SLOs, and SLAs; managed on-call operations, incident response, troubleshooting, and RCA.</li><li>Automated deployments using Azure DevOps, GitHub Actions, and ArgoCD; managed Kubernetes deployments with Helm.</li><li>Supported monitoring and disaster recovery strategies for AI-powered products.</li></ul><div class="tech"><b>Tech:</b> AWS, Kubernetes, Helm, Terraform, ArgoCD, Azure DevOps, GitHub Actions, Grafana, Prometheus, ELK</div></div></article>
-<article class="job"><div><div class="date">May 2023 — Jun 2024</div><div class="place">Remote / Indore, India</div></div><div><h3>DevOps Engineer</h3><div class="place">Abacus Consultancy Pvt. Ltd.</div><ul><li>Managed AWS infrastructure across Lambda, ECS, ECR, RDS, S3, Glue, and Athena.</li><li>Reduced cloud costs by 15% through infrastructure optimization and resource monitoring.</li><li>Built CI/CD pipelines using GitLab CI/CD, GitHub Actions, Jenkins, and Bitbucket Pipelines.</li><li>Integrated SonarQube and optimized Docker images for deployment efficiency.</li></ul><div class="tech"><b>Tech:</b> AWS, Docker, Kubernetes, Terraform, GitLab CI/CD, GitHub Actions, Jenkins, SonarQube</div></div></article>
-<article class="job"><div><div class="date">Aug 2021 — Apr 2023</div><div class="place">Chandigarh, India</div></div><div><h3>Associate Software Engineer (Backend)</h3><div class="place">CrossML Pvt. Ltd.</div><ul><li>Designed and maintained 10+ AWS Glue ETL pipelines, reducing manual processing by 30%.</li><li>Containerized applications with Docker and developed cloud solutions using Lambda, S3, and CloudFormation.</li></ul><div class="tech"><b>Tech:</b> Python, Docker, AWS Glue, Lambda, S3, CloudFormation</div></div></article>
-</div></div></section>
-<section id="projects"><div class="wrap"><div class="kicker">Selected projects</div><h2>Applied engineering.</h2><p class="intro">Application and data-processing work based on the projects in my resume.</p><div class="projects">
-<article class="project"><div class="project-icon">▤</div><h3>OCR-Based Document Processing</h3><p>Developed document text-extraction workflows using Python/Django, Tesseract, and pdfplumber, integrating OCR into application APIs.</p><div class="pills"><span class="pill">Python</span><span class="pill">Django</span><span class="pill">Tesseract</span><span class="pill">Docker</span></div></article>
-<article class="project"><div class="project-icon">☁</div><h3>AWS Textract Invoice Processing</h3><p>Worked on an AWS document-processing pipeline using Textract and supporting services for document extraction and downstream workflows.</p><div class="pills"><span class="pill">Textract</span><span class="pill">S3</span><span class="pill">Lambda</span><span class="pill">SNS/SQS</span></div></article>
-<article class="project"><div class="project-icon">⌘</div><h3>Career Prediction & Recommendation</h3><p>Contributed to a Python/Django application involving ML-model integration and APIs for career prediction and recommendations.</p><div class="pills"><span class="pill">Python</span><span class="pill">Django</span><span class="pill">ML integration</span><span class="pill">APIs</span></div></article>
-</div></div></section>
-<section id="education"><div class="wrap"><div class="kicker">Education & certification</div><h2>Foundations.</h2><div class="education"><article class="edu"><h3>B.Tech — Computer Science & Engineering</h3><p>RIMT University, Mandi Gobindgarh, Punjab · 2017–2021</p></article><article class="edu"><h3>AWS Certified Cloud Practitioner</h3><p>Certified · Certified Kubernetes Administrator (CKA) in progress</p></article></div></div></section>
-<section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">Get in touch</div><h2>Let's build reliable systems.</h2><p>Open to conversations about SRE, DevOps, cloud infrastructure, observability, and platform reliability opportunities.</p></div><div class="actions"><a class="btn primary" href="mailto:vipul81kumar@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/vipul2052/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div></section>
-</main>
-<footer><div class="wrap foot"><span>© <span id="year"></span> Vipul Singh · HTML, CSS & JavaScript</span><a href="#home">Back to top ↑</a></div></footer>
-<script>
-const root=document.documentElement,theme=document.getElementById('theme'),menu=document.getElementById('menu'),links=document.getElementById('links');
-try{root.dataset.theme=localStorage.getItem('vipul-theme')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light')}catch(e){root.dataset.theme='light'}
-function paint(){theme.textContent=root.dataset.theme==='dark'?'☀':'☾'}paint();
-theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('vipul-theme',root.dataset.theme)}catch(e){}paint()});
-menu.addEventListener('click',()=>links.classList.toggle('open'));links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
-</body></html>
+    <header>
+        <div class="wrap">
+            <nav><a class="brand" href="#home">Vipul<span>.</span></a>
+                <div class="links" id="links"><a href="#about">About</a><a href="#skills">Skills</a><a
+                        href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+                </div>
+                <div><button id="theme" aria-label="Toggle theme">☾</button> <button class="menu" id="menu"
+                        aria-label="Toggle navigation">☰</button></div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div><span class="eyebrow">Site Reliability Engineer II</span>
+                        <h1>Building reliable systems.<br><span class="gradient">Scaling with confidence.</span></h1>
+                        <p class="lead">I'm Vipul Singh, an SRE and DevOps engineer focused on cloud infrastructure,
+                            Kubernetes, observability, automation, and production reliability.</p>
+                        <div class="actions"><a class="btn primary" href="#experience">Explore experience ↘</a><a
+                                class="btn" href="mailto:vipul81kumar@gmail.com">Contact me ↗</a><a class="btn"
+                                href="https://www.linkedin.com/in/vipul2052/" target="_blank" rel="noopener">LinkedIn
+                                ↗</a></div>
+                    </div>
+                    <aside class="terminal">
+                        <div class="dots"><i></i><i></i><i></i></div>
+                        <div><b>vipul@platform</b>:~$ whoami</div>
+                        <div>Site Reliability Engineer</div>
+                        <div><b>cloud</b>: AWS</div>
+                        <div><b>orchestration</b>: Kubernetes</div>
+                        <div><b>automation</b>: Terraform / OpenTofu</div>
+                        <div><b>observability</b>: Grafana / Prometheus / ELK</div>
+                        <div><b>mission</b>: reliable platforms_</div>
+                    </aside>
+                </div>
+                <div class="stats">
+                    <div class="stat"><strong>5+ years</strong><span>Professional experience</span></div>
+                    <div class="stat"><strong>100+ services</strong><span>Centralized observability</span></div>
+                    <div class="stat"><strong>40%</strong><span>Faster incident response</span></div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="wrap">
+                <div class="kicker">About me</div>
+                <h2>Reliability is a practice.</h2>
+                <div class="about">
+                    <article class="panel">
+                        <p class="muted">Site Reliability Engineer with 5+ years of experience across cloud
+                            infrastructure, DevOps, backend engineering, and production reliability. My work spans AWS,
+                            Kubernetes, CI/CD automation, observability, incident response, and cloud cost optimization.
+                        </p>
+                        <p class="muted">I enjoy improving how systems are deployed, monitored, scaled, and recovered
+                            through automation and practical engineering.</p>
+                        <p class="muted"><b>AI-related work:</b> OCR-based document processing and application-level ML
+                            integration. SREbot and LLM/RAG deployment are not presented as hands-on experience.</p>
+                    </article>
+                    <article class="panel">
+                        <h3>Core focus</h3>
+                        <div class="pills"><span class="pill">SRE</span><span class="pill">AWS</span><span
+                                class="pill">Kubernetes</span><span class="pill">IaC</span><span
+                                class="pill">CI/CD</span><span class="pill">Incident Response</span><span
+                                class="pill">Observability</span><span class="pill">Cost Optimization</span><span
+                                class="pill">Kafka & KEDA</span><span class="pill">Istio</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <div class="wrap">
+                <div class="kicker">Technical toolkit</div>
+                <h2>Tools I work with.</h2>
+                <div class="skills">
+                    <article class="skill">
+                        <h3>☁️ Cloud & IaC</h3>
+                        <p>AWS, DigitalOcean, Terraform, OpenTofu, CloudFormation</p>
+                    </article>
+                    <article class="skill">
+                        <h3>⎈ Containers & Platform</h3>
+                        <p>Docker, Kubernetes, Helm, Kustomize, Backstage</p>
+                    </article>
+                    <article class="skill">
+                        <h3>📈 Observability</h3>
+                        <p>Prometheus, Grafana, New Relic, ELK, OpenSearch, Loki, Istio metrics</p>
+                    </article>
+                    <article class="skill">
+                        <h3>🚀 CI/CD & Automation</h3>
+                        <p>GitLab CI/CD, GitHub Actions, Jenkins, Azure DevOps, ArgoCD, Ansible, Python</p>
+                    </article>
+                    <article class="skill">
+                        <h3>📨 Messaging & Identity</h3>
+                        <p>Kafka, KEDA, Redis, RabbitMQ, AKHQ, Keycloak</p>
+                    </article>
+                    <article class="skill">
+                        <h3>🧰 Development & Data</h3>
+                        <p>Python, Django, FastAPI, PostgreSQL, MySQL, MongoDB, AWS Glue</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="experience">
+            <div class="wrap">
+                <div class="kicker">Career journey</div>
+                <h2>Experience that ships.</h2>
+                <p class="intro">Cloud operations, automation, and reliability engineering.</p>
+                <div class="jobs">
+                    <article class="job">
+                        <div>
+                            <div class="date">Sep 2025 — Present</div>
+                            <div class="place">Noida, India</div>
+                        </div>
+                        <div>
+                            <h3>Site Reliability Engineer II</h3>
+                            <div class="place">Personify Health · CloudAngles Pvt. Ltd.</div>
+                            <ul>
+                                <li>Manage AWS infrastructure and improve production reliability.</li>
+                                <li>Optimize cloud costs through resource tagging and rightsizing.</li>
+                                <li>Implement KEDA-based autoscaling for Kafka workloads on Kubernetes.</li>
+                                <li>Contribute to Istio Ambient Mode implementation; improve observability using Istio
+                                    metrics, New Relic, and OpenSearch.</li>
+                                <li>Reduce log ingestion and storage costs through application logging optimization.
+                                </li>
+                                <li>Manage infrastructure using OpenTofu and support Keycloak, Backstage, and AKHQ.</li>
+                            </ul>
+                            <div class="tech"><b>Tech:</b> AWS, Kubernetes, OpenTofu, GitLab, KEDA, Kafka, Istio, New
+                                Relic, OpenSearch</div>
+                        </div>
+                    </article>
+                    <article class="job">
+                        <div>
+                            <div class="date">Jul 2024 — Sep 2025</div>
+                            <div class="place">Bengaluru, India</div>
+                        </div>
+                        <div>
+                            <h3>Site Reliability Engineer</h3>
+                            <div class="place">ViewSonic India</div>
+                            <ul>
+                                <li>Centralized monitoring and logging for 100+ services using Grafana, Prometheus, and
+                                    ELK, reducing incident response time by 40%.</li>
+                                <li>Defined SLIs, SLOs, and SLAs; managed on-call operations, incident response,
+                                    troubleshooting, and RCA.</li>
+                                <li>Automated deployments using Azure DevOps, GitHub Actions, and ArgoCD; managed
+                                    Kubernetes deployments with Helm.</li>
+                                <li>Supported monitoring and disaster recovery strategies for AI-powered products.</li>
+                            </ul>
+                            <div class="tech"><b>Tech:</b> AWS, Kubernetes, Helm, Terraform, ArgoCD, Azure DevOps,
+                                GitHub Actions, Grafana, Prometheus, ELK</div>
+                        </div>
+                    </article>
+                    <article class="job">
+                        <div>
+                            <div class="date">May 2023 — Jun 2024</div>
+                            <div class="place">Remote / Indore, India</div>
+                        </div>
+                        <div>
+                            <h3>DevOps Engineer</h3>
+                            <div class="place">Abacus Consultancy Pvt. Ltd.</div>
+                            <ul>
+                                <li>Managed AWS infrastructure across Lambda, ECS, ECR, RDS, S3, Glue, and Athena.</li>
+                                <li>Reduced cloud costs by 15% through infrastructure optimization and resource
+                                    monitoring.</li>
+                                <li>Built CI/CD pipelines using GitLab CI/CD, GitHub Actions, Jenkins, and Bitbucket
+                                    Pipelines.</li>
+                                <li>Integrated SonarQube and optimized Docker images for deployment efficiency.</li>
+                            </ul>
+                            <div class="tech"><b>Tech:</b> AWS, Docker, Kubernetes, Terraform, GitLab CI/CD, GitHub
+                                Actions, Jenkins, SonarQube</div>
+                        </div>
+                    </article>
+                    <article class="job">
+                        <div>
+                            <div class="date">Aug 2021 — Apr 2023</div>
+                            <div class="place">Chandigarh, India</div>
+                        </div>
+                        <div>
+                            <h3>Associate Software Engineer (Backend)</h3>
+                            <div class="place">CrossML Pvt. Ltd.</div>
+                            <ul>
+                                <li>Designed and maintained 10+ AWS Glue ETL pipelines, reducing manual processing by
+                                    30%.</li>
+                                <li>Containerized applications with Docker and developed cloud solutions using Lambda,
+                                    S3, and CloudFormation.</li>
+                            </ul>
+                            <div class="tech"><b>Tech:</b> Python, Docker, AWS Glue, Lambda, S3, CloudFormation</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="wrap">
+                <div class="kicker">Selected projects</div>
+                <h2>Applied engineering.</h2>
+                <p class="intro">Application and data-processing work based on the projects in my resume.</p>
+                <div class="projects">
+                    <article class="project">
+                        <div class="project-icon">▤</div>
+                        <h3>OCR-Based Document Processing</h3>
+                        <p>Developed document text-extraction workflows using Python/Django, Tesseract, and pdfplumber,
+                            integrating OCR into application APIs.</p>
+                        <div class="pills"><span class="pill">Python</span><span class="pill">Django</span><span
+                                class="pill">Tesseract</span><span class="pill">Docker</span></div>
+                    </article>
+                    <article class="project">
+                        <div class="project-icon">☁</div>
+                        <h3>AWS Textract Invoice Processing</h3>
+                        <p>Worked on an AWS document-processing pipeline using Textract and supporting services for
+                            document extraction and downstream workflows.</p>
+                        <div class="pills"><span class="pill">Textract</span><span class="pill">S3</span><span
+                                class="pill">Lambda</span><span class="pill">SNS/SQS</span></div>
+                    </article>
+                    <article class="project">
+                        <div class="project-icon">⌘</div>
+                        <h3>Career Prediction & Recommendation</h3>
+                        <p>Contributed to a Python/Django application involving ML-model integration and APIs for career
+                            prediction and recommendations.</p>
+                        <div class="pills"><span class="pill">Python</span><span class="pill">Django</span><span
+                                class="pill">ML integration</span><span class="pill">APIs</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="education">
+            <div class="wrap">
+                <div class="kicker">Education & certification</div>
+                <h2>Foundations.</h2>
+                <div class="education">
+                    <article class="edu">
+                        <h3>B.Tech — Computer Science & Engineering</h3>
+                        <p>RIMT University, Mandi Gobindgarh, Punjab · 2017–2021</p>
+                    </article>
+                    <article class="edu">
+                        <h3>AWS Certified Cloud Practitioner</h3>
+                        <p>Certified · Certified Kubernetes Administrator (CKA) in progress</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="wrap">
+                <div class="contact">
+                    <div>
+                        <div class="kicker">Get in touch</div>
+                        <h2>Let's build reliable systems.</h2>
+                        <p>Open to conversations about SRE, DevOps, cloud infrastructure, observability, and platform
+                            reliability opportunities.</p>
+                    </div>
+                    <div class="actions"><a class="btn primary" href="mailto:vipul81kumar@gmail.com">Email me ↗</a><a
+                            class="btn" href="https://www.linkedin.com/in/vipul2052/" target="_blank"
+                            rel="noopener">LinkedIn ↗</a></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="wrap foot"><span>© <span id="year"></span> Vipul Singh · HTML, CSS & JavaScript</span><a
+                href="#home">Back to top ↑</a></div>
+    </footer>
+    <script>
+        const root = document.documentElement, theme = document.getElementById('theme'), menu = document.getElementById('menu'), links = document.getElementById('links');
+        try { root.dataset.theme = localStorage.getItem('vipul-theme') || ((matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light') } catch (e) { root.dataset.theme = 'light' }
+        function paint() { theme.textContent = root.dataset.theme === 'dark' ? '☀' : '☾' } paint();
+        theme.addEventListener('click', () => { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('vipul-theme', root.dataset.theme) } catch (e) { } paint() });
+        menu.addEventListener('click', () => links.classList.toggle('open')); links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
